@@ -1,19 +1,26 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import TaskHeader from './TaskHeader';
-import MenuApp from './task1/MenuApp';
-
+import Menu from './components/Menu';
+import HomePage from './components/HomePage';
+import DriftPage from './components/DriftPage';
+import TimeAttackPage from './components/TimeAttackPage';
+import ForzaPage from './components/ForzaPage';
 
 function App() {
-  return (<React.Fragment>
-    <div className="task-1">
-      <TaskHeader title="Задача 1" />
-      <MenuApp />
-    </div>
-    <div className="task-2">
-      <TaskHeader title="Задача 2" />
-    </div>
-  </React.Fragment>);
+  return (
+    <Router>
+      <div>
+        <Menu />
+        <div className="page">
+          <Route path="/" exact component={HomePage} />
+          <Route path="/drift" component={DriftPage} />
+          <Route path="/timeattack" component={TimeAttackPage} />
+          <Route path="/forza" component={ForzaPage} />
+        </div>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
