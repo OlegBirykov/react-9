@@ -8,15 +8,17 @@ import TimeAttackPage from './components/TimeAttackPage';
 import ForzaPage from './components/ForzaPage';
 
 function App() {
+  const appPath = process.env.PUBLIC_URL;  
+
   return (
     <Router>
       <div>
         <Menu />
         <div className="page">
-          <Route path="/" exact component={HomePage} />
-          <Route path="/drift" component={DriftPage} />
-          <Route path="/timeattack" component={TimeAttackPage} />
-          <Route path="/forza" component={ForzaPage} />
+          <Route path={appPath} exact component={HomePage} />
+          <Route path={appPath + '/drift'} component={DriftPage} />
+          <Route path={appPath + '/timeattack'} component={TimeAttackPage} />
+          <Route path={appPath + '/forza'} component={ForzaPage} />
         </div>
       </div>
     </Router>
